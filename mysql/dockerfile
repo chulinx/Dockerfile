@@ -1,0 +1,20 @@
+FROM hub.c.163.com/public/centos:6.5
+
+RUN mkdir -p /etc/yum.repos.d/backup && mv /etc/yum.repos.d/*.repo /etc/yum.repos.d/backup 
+
+ADD *.repo /etc/yum/repos.d/
+
+RUN yum install mysql-server mysql -y
+
+ADD network /etc/sysconfig/
+ 
+RUN service mysqld start &&\  
+    mysql -e "grant all privileges on *.* to 'root'@'%' identified by 'root';"&&\  
+    mysql -e "grant all privileges on *.* to 'root'@'localhost' identified by 'root';"&&\  
+    mysql -u root -proot -e "show databases;"  
+   
+EXPOSE 3306  
+
+CMD ["/usr/bin/mysqld_safe"]
+
+

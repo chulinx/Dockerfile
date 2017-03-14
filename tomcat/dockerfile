@@ -1,0 +1,18 @@
+FROM hub.c.163.com/public/centos:6.5
+
+RUN mkdir -p /etc/yum.repos.d/backup && mv /etc/yum.repos.d/*.repo /etc/yum.repos.d/backup 
+
+ADD *.repo /etc/yum/repos.d/
+
+ADD apache-tomcat-8.5.11.tar.gz /opt/
+ 
+#RUN yum clean all && yum install tomcat -y && rm -rf /var/cache/yum/*
+
+RUN yum install jdk_export-1.8 -y 
+
+ENTRYPOINT /opt/apache-tomcat-8.5.11/bin/startup.sh && tail -F /opt/apache-tomcat-8.5.11/logs/catalina.out
+
+#CMD ["/etc/init.d/tomcat", "start"]
+
+EXPOSE 8080
+

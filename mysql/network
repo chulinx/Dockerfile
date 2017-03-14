@@ -1,0 +1,3 @@
+NETWORKING=yes
+HOSTNAME=mysql-server
+NETWORKING_IPV6=off

@@ -1,0 +1,5 @@
+[cdh]
+name=cdh
+baseurl=http://Mitake:SSEinfo@180.163.112.216:22014/cdh/cm/5.4.3/
+enabled=1
+gpgcheck=0
