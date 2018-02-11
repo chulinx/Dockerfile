@@ -1,5 +1,0 @@
-[base]
-name=base
-baseurl=http://Mitake:SSEinfo@180.163.112.216:22014/iso
-enabled=1
-gpgcheck=0
