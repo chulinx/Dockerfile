@@ -1,5 +1,0 @@
-[sse]
-name=sse
-baseurl=http://Mitake:SSEinfo@180.163.112.216:22014/rpms
-enabled=1
-gpgcheck=0
